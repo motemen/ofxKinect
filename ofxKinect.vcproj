@@ -62,7 +62,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="openframeworksLibDebug.lib OpenGL32.lib GLu32.lib kernel32.lib setupapi.lib glut32.lib rtAudioD.lib videoInput.lib libfreetype.lib FreeImage.lib qtmlClient.lib dsound.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib GLee.lib fmodex_vc.lib glu32.lib PocoFoundationmtd.lib PocoNetmtd.lib PocoUtilmtd.lib PocoXMLmtd.lib"
+				AdditionalDependencies="openframeworksLib.lib OpenGL32.lib GLu32.lib kernel32.lib setupapi.lib glut32.lib rtAudio.lib videoInput.lib libfreetype.lib FreeImage.lib qtmlClient.lib dsound.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib GLee.lib fmodex_vc.lib glu32.lib PocoFoundationmt.lib PocoNetmt.lib PocoUtilmt.lib PocoXMLmt.lib Ws2_32.lib ..\..\..\addons\ofxOpenCv\libs\opencv\lib\vs2008\cv110.lib ..\..\..\addons\ofxOpenCv\libs\opencv\lib\vs2008\cvaux110.lib ..\..\..\addons\ofxOpenCv\libs\opencv\lib\vs2008\cxcore110.lib ..\..\..\addons\ofxOsc\libs\oscpack\lib\vs2008\oscpack.lib"
 				OutputFile="$(OutDir)\$(ProjectName)_debug.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="..\..\..\libs\glut\lib\vs2008;..\..\..\libs\rtAudio\lib\vs2008;..\..\..\libs\FreeImage\lib\vs2008;..\..\..\libs\freetype\lib\vs2008;..\..\..\libs\quicktime\lib\vs2008;..\..\..\libs\fmodex\lib\vs2008;..\..\..\libs\videoInput\lib\vs2008;..\..\..\libs\glee\lib\vs2008;..\..\..\libs\glu\lib\vs2008;..\..\..\libs\Poco\lib\vs2008;..\..\..\libs\openFrameworksCompiled\lib\vs2008"
@@ -144,7 +144,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="openframeworksLib.lib OpenGL32.lib GLu32.lib kernel32.lib setupapi.lib glut32.lib rtAudio.lib videoInput.lib libfreetype.lib FreeImage.lib qtmlClient.lib dsound.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib GLee.lib fmodex_vc.lib glu32.lib PocoFoundationmt.lib PocoNetmt.lib PocoUtilmt.lib PocoXMLmt.lib"
+				AdditionalDependencies="openframeworksLib.lib OpenGL32.lib GLu32.lib kernel32.lib setupapi.lib glut32.lib rtAudio.lib videoInput.lib libfreetype.lib FreeImage.lib qtmlClient.lib dsound.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib GLee.lib fmodex_vc.lib glu32.lib PocoFoundationmt.lib PocoNetmt.lib PocoUtilmt.lib PocoXMLmt.lib Ws2_32.lib ..\..\..\addons\ofxOpenCv\libs\opencv\lib\vs2008\cv110.lib ..\..\..\addons\ofxOpenCv\libs\opencv\lib\vs2008\cvaux110.lib ..\..\..\addons\ofxOpenCv\libs\opencv\lib\vs2008\cxcore110.lib ..\..\..\addons\ofxOsc\libs\oscpack\lib\vs2008\oscpack.lib"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="..\..\..\libs\glut\lib\vs2008;..\..\..\libs\rtAudio\lib\vs2008;..\..\..\libs\FreeImage\lib\vs2008;..\..\..\libs\freetype\lib\vs2008;..\..\..\libs\quicktime\lib\vs2008;..\..\..\libs\fmodex\lib\vs2008;..\..\..\libs\videoInput\lib\vs2008;..\..\..\libs\glee\lib\vs2008;..\..\..\libs\glu\lib\vs2008;..\..\..\libs\Poco\lib\vs2008;..\..\..\libs\openFrameworksCompiled\lib\vs2008"
 				IgnoreAllDefaultLibraries="false"
@@ -290,6 +290,150 @@
 					/>
 				</FileConfiguration>
 			</File>
+		</Filter>
+		<Filter
+			Name="ofxOpenCv"
+			>
+			<File
+				RelativePath="..\..\..\addons\ofxOpenCv\src\ofxCvBlob.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\addons\ofxOpenCv\src\ofxCvColorImage.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\addons\ofxOpenCv\src\ofxCvColorImage.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\addons\ofxOpenCv\src\ofxCvConstants.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\addons\ofxOpenCv\src\ofxCvContourFinder.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\addons\ofxOpenCv\src\ofxCvContourFinder.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\addons\ofxOpenCv\src\ofxCvFloatImage.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\addons\ofxOpenCv\src\ofxCvFloatImage.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\addons\ofxOpenCv\src\ofxCvGrayscaleImage.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\addons\ofxOpenCv\src\ofxCvGrayscaleImage.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\addons\ofxOpenCv\src\ofxCvImage.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\addons\ofxOpenCv\src\ofxCvImage.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\addons\ofxOpenCv\src\ofxCvMain.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\addons\ofxOpenCv\src\ofxCvShortImage.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\addons\ofxOpenCv\src\ofxCvShortImage.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\addons\ofxOpenCv\src\ofxOpenCv.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="addons"
+			>
+			<Filter
+				Name="ofxThread"
+				>
+				<Filter
+					Name="src"
+					>
+					<File
+						RelativePath="..\..\..\addons\ofxThread\src\ofxThread.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\..\addons\ofxThread\src\ofxThread.h"
+						>
+					</File>
+				</Filter>
+			</Filter>
+			<Filter
+				Name="ofxVectorMath"
+				>
+				<Filter
+					Name="src"
+					>
+					<File
+						RelativePath="..\..\..\addons\ofxVectorMath\src\ofxMatrix3x3.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\..\addons\ofxVectorMath\src\ofxMatrix4x4.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\..\addons\ofxVectorMath\src\ofxMatrix4x4.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\..\addons\ofxVectorMath\src\ofxPoint2f.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\..\addons\ofxVectorMath\src\ofxPoint3f.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\..\addons\ofxVectorMath\src\ofxPoint4f.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\..\addons\ofxVectorMath\src\ofxQuaternion.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\..\addons\ofxVectorMath\src\ofxQuaternion.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\..\addons\ofxVectorMath\src\ofxVec2f.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\..\addons\ofxVectorMath\src\ofxVec3f.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\..\addons\ofxVectorMath\src\ofxVec4f.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\..\addons\ofxVectorMath\src\ofxVectorMath.h"
+						>
+					</File>
+				</Filter>
+			</Filter>
 		</Filter>
 		<File
 			RelativePath=".\src\ofxKinect\libs\libfreenect\freenect_internal.h"
