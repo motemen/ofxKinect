@@ -25,10 +25,10 @@
  */
 
 #include <stdio.h>
-#include <stdbool.h>
+//#include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
-#include <libusb-1.0/libusb.h>
+#include <libusb.h>
 #include "freenect_internal.h"
 
 int fnusb_init(fnusb_ctx *ctx, freenect_usb_context *usb_ctx)
@@ -172,7 +172,7 @@ int fnusb_close_subdevices(freenect_device *dev)
 static void iso_callback(struct libusb_transfer *xfer)
 {
 	int i;
-	fnusb_isoc_stream *strm = xfer->user_data;
+	fnusb_isoc_stream *strm = (fnusb_isoc_stream *)xfer->user_data;
 
 	if (strm->dead) {
 		freenect_context *ctx = strm->parent->parent->parent;
@@ -182,7 +182,7 @@ static void iso_callback(struct libusb_transfer *xfer)
 	}
 
 	if(xfer->status == LIBUSB_TRANSFER_COMPLETED) {
-		uint8_t *buf = (void*)xfer->buffer;
+		uint8_t *buf = (uint8_t *)xfer->buffer;
 		for (i=0; i<strm->pkts; i++) {
 			strm->cb(strm->parent->parent, buf, xfer->iso_packet_desc[i].actual_length);
 			buf += strm->len;
@@ -205,8 +205,8 @@ int fnusb_start_iso(fnusb_dev *dev, fnusb_isoc_stream *strm, fnusb_iso_cb cb, in
 	strm->num_xfers = xfers;
 	strm->pkts = pkts;
 	strm->len = len;
-	strm->buffer = malloc(xfers * pkts * len);
-	strm->xfers = malloc(sizeof(struct libusb_transfer*) * xfers);
+	strm->buffer = (uint8_t *)malloc(xfers * pkts * len);
+	strm->xfers = (libusb_transfer **)malloc(sizeof(struct libusb_transfer*) * xfers);
 	strm->dead = 0;
 	strm->dead_xfers = 0;
 
@@ -216,7 +216,7 @@ int fnusb_start_iso(fnusb_dev *dev, fnusb_isoc_stream *strm, fnusb_iso_cb cb, in
 		FN_SPEW("Creating EP %02x transfer #%d\n", ep, i);
 		strm->xfers[i] = libusb_alloc_transfer(pkts);
 
-		libusb_fill_iso_transfer(strm->xfers[i], dev->dev, ep, bufp, pkts * len, pkts, iso_callback, strm, 0);
+		libusb_fill_iso_transfer(strm->xfers[i], dev->dev, ep, bufp, pkts * len, pkts, (libusb_transfer_cb_fn)iso_callback, strm, 0);
 
 		libusb_set_iso_packet_lengths(strm->xfers[i], len);
 

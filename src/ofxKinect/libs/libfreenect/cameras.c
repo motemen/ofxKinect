@@ -27,7 +27,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
+//#include <unistd.h>
 
 #include "freenect_internal.h"
 
@@ -50,7 +50,7 @@ static int stream_process(freenect_context *ctx, packet_stream *strm, uint8_t *p
 	if (len < 12)
 		return 0;
 
-	struct pkt_hdr *hdr = (void*)pkt;
+	struct pkt_hdr *hdr = (struct pkt_hdr *)pkt;
 	uint8_t *data = pkt + sizeof(*hdr);
 	int datalen = len - sizeof(*hdr);
 
@@ -482,8 +482,8 @@ static int send_cmd(freenect_device *dev, uint16_t cmd, void *cmdbuf, unsigned i
 	int res, actual_len;
 	uint8_t obuf[0x400];
 	uint8_t ibuf[0x200];
-	cam_hdr *chdr = (void*)obuf;
-	cam_hdr *rhdr = (void*)ibuf;
+	cam_hdr *chdr = (cam_hdr *)obuf;
+	cam_hdr *rhdr = (cam_hdr *)ibuf;
 
 	if (cmd_len & 1 || cmd_len > (0x400 - sizeof(*chdr))) {
 		FN_ERROR("send_cmd: Invalid command length (0x%x)\n", cmd_len);
